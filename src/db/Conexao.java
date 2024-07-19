@@ -8,14 +8,13 @@ import java.sql.Statement;
 
 public class Conexao {
 	
-	private static Connection conn = null;  //Objeto de conexão com o banco de dados do JDBC
+	private static Connection conn = null;  
 	
-	//Abre a conexão
 	public static Connection getConnection() {
 		if (conn == null) {
 			try {
 				String url = "jdbc:mysql://localhost:3306/cousejdbc?user=root&password=12345";
-				conn = DriverManager.getConnection(url); //DriverManager gerencia um conjunto de drivers de banco de dados. Seleciona um driver apropriado para estabelecer a conexão
+				conn = DriverManager.getConnection(url); 
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 			}
@@ -23,7 +22,6 @@ public class Conexao {
 		return conn;
 	}
 	
-	//Fecha a conexão
 	public static void closeConnection() {
 		if (conn != null) {
 			try {
